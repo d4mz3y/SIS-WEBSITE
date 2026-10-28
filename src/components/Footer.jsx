@@ -1,8 +1,9 @@
+import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMail, FiPhone } from 'react-icons/fi';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
 import logo from '../assets/brand/logo.webp';
-import { footerLinks, site } from '../data/site';
+import { footerLinks, legalLinks, site } from '../data/site';
 
 const socialIcons = {
   facebook: FaFacebookF,
@@ -15,7 +16,7 @@ export default function Footer() {
   const socials = site.socials.filter((s) => s.href);
 
   return (
-    <footer className="bg-navy border-t border-gold/20 text-white">
+    <footer className="border-t border-gold/20 bg-navy text-white print:hidden">
       <div
         className={`container-x grid gap-10 py-14 text-center sm:grid-cols-2 sm:text-left ${
           socials.length ? 'lg:grid-cols-[1.6fr_1fr_1.3fr_1fr]' : 'lg:grid-cols-[1.6fr_1fr_1.3fr]'
@@ -91,13 +92,34 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-x flex flex-col items-center justify-between gap-2 py-6 text-sm text-white/50 sm:flex-row">
-          <p className="text-center">
+        {/* Centred, bars between items. From 1024px up it is a single line:
+            "© 2026 ... | Privacy Policy | Terms & Conditions | Consent Forms". Below that the copyright sits on its
+            own line(s) and the links follow, still separated by bars, so nothing ever runs off a phone screen.
+            Each link keeps its trailing bar with it, so a wrap happens after a bar, never before one. */}
+        <div className="container-x py-6 text-center text-sm leading-8 text-white/50">
+          <span className="block lg:inline">
             &copy; {new Date().getFullYear()} {site.name}. All Rights Reserved.
-          </p>
-          <Link to="/terms" className="py-1 transition-colors hover:text-gold">
-            Terms &amp; Conditions
-          </Link>
+          </span>
+          <span aria-hidden="true" className="mx-3 hidden text-white/30 lg:inline">
+            |
+          </span>
+          <nav aria-label="Legal" className="block lg:inline">
+            {legalLinks.map(({ to, label }, index) => (
+              <Fragment key={to}>
+                <span className="whitespace-nowrap">
+                  <Link to={to} className="transition-colors hover:text-gold">
+                    {label}
+                  </Link>
+                  {index < legalLinks.length - 1 && (
+                    <span aria-hidden="true" className="mx-2 text-white/30 sm:mx-3">
+                      |
+                    </span>
+                  )}
+                </span>
+                {/* The space sits outside the no-wrap span so the line can break between items. */}{' '}
+              </Fragment>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>

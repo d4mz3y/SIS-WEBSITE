@@ -1,9 +1,6 @@
-import PageBand from '../components/PageBand.jsx';
+import LegalDocument, { LegalLink } from '../components/LegalDocument.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
-import { site } from '../data/site';
 
-// Each section body is a list of blocks: a string is a paragraph, { list } is a bulleted list,
-// and { contact } renders the contact details.
 const sections = [
   {
     id: 'about',
@@ -60,7 +57,15 @@ const sections = [
           'cooperate with us in good time, for example by giving access, introductions or documents we reasonably request.',
         ],
       },
-      'We may refuse or stop any request that appears unlawful, unsafe or unfair.',
+      {
+        node: (
+          <p className="leading-8 text-mist">
+            To make the consent step simple, you can give candidates and guarantors our{' '}
+            <LegalLink to="/consent">Verification Consent Forms</LegalLink> to sign, and send us the signed copies with
+            your request. We may refuse or stop any request that appears unlawful, unsafe or unfair.
+          </p>
+        ),
+      },
     ],
   },
   {
@@ -110,7 +115,14 @@ const sections = [
       'We handle personal data in line with applicable Nigerian data protection law, including the Nigeria Data Protection Act 2023. We collect and use it to deliver the Services, to respond to enquiries, to meet our legal obligations, and to run and protect our business.',
       'In the course of the Services we may collect identification details, address and contact details, employment information, and evidence gathered on field visits such as GPS-tagged location data and timestamped photographs. Details you send through the Website contact form (name, company, email address, phone number, service and message) are used to respond to you and are delivered to us through a third-party form service.',
       'You confirm that you have the right to give us the personal data you provide, and that you have given the notices and obtained the consents the law requires. We use reasonable technical and organisational measures to protect personal data. We keep it only for as long as we need it for these purposes or the law requires, and then delete or anonymise it securely.',
-      'Individuals can ask us about, or exercise their rights over, their personal data by contacting us at the email address below.',
+      {
+        node: (
+          <p className="leading-8 text-mist">
+            This section is a summary. Our <LegalLink to="/privacy">Privacy Policy</LegalLink> explains in full what we
+            collect, why, who we share it with, how long we keep it, and how individuals can exercise their rights.
+          </p>
+        ),
+      },
     ],
   },
   {
@@ -205,37 +217,6 @@ const sections = [
   },
 ];
 
-function Block({ block }) {
-  if (typeof block === 'string') return <p className="leading-8 text-mist">{block}</p>;
-
-  if (block.list) {
-    return (
-      <ul className="list-disc space-y-2 pl-6 leading-8 text-mist marker:text-gold">
-        {block.list.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-    );
-  }
-
-  return (
-    <ul className="space-y-2 leading-8 text-mist">
-      <li>
-        Email:{' '}
-        <a href={`mailto:${site.email}`} className="font-semibold text-gold underline-offset-4 hover:underline">
-          {site.email}
-        </a>
-      </li>
-      <li>
-        Phone:{' '}
-        <a href={site.phoneHref} className="font-semibold text-gold underline-offset-4 hover:underline">
-          {site.phone}
-        </a>
-      </li>
-    </ul>
-  );
-}
-
 export default function Terms() {
   usePageMeta(
     'Terms and Conditions',
@@ -243,53 +224,12 @@ export default function Terms() {
   );
 
   return (
-    <>
-      <PageBand />
-      <section className="bg-navy px-0 py-16 sm:py-24">
-        <div className="container-x max-w-3xl">
-          <header>
-            <span className="eyebrow block">Legal</span>
-            <h1 className="mt-4 text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
-              Terms and Conditions
-            </h1>
-            <p className="mt-4 text-sm text-white/60">Last updated: {site.termsUpdated}</p>
-            <p className="mt-6 leading-8 text-mist">
-              Please read these Terms and Conditions (“Terms”) carefully. They explain how you may use our website and
-              the rules that apply when you ask SIS Verification Services to verify an employee or a guarantor.
-            </p>
-          </header>
-
-          <nav aria-label="Contents" className="mt-10 rounded-2xl border border-gold/25 bg-navy-card p-6 sm:p-8">
-            <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-gold">Contents</h2>
-            <ol className="grid gap-x-8 gap-y-2 text-sm sm:grid-cols-2">
-              {sections.map(({ id, title }, index) => (
-                <li key={id}>
-                  <a href={`#${id}`} className="block py-1 text-mist transition-colors hover:text-gold">
-                    <span className="mr-2 text-gold">{index + 1}.</span>
-                    {title}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </nav>
-
-          <div className="mt-12 space-y-12">
-            {sections.map(({ id, title, body }, index) => (
-              <article key={id} id={id} className="scroll-mt-24">
-                <h2 className="mb-4 text-xl font-bold text-gold sm:text-2xl">
-                  <span className="mr-2">{index + 1}.</span>
-                  {title}
-                </h2>
-                <div className="space-y-4">
-                  {body.map((block, i) => (
-                    <Block key={i} block={block} />
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
+    <LegalDocument
+      title="Terms and Conditions"
+      intro={[
+        'Please read these Terms and Conditions (“Terms”) carefully. They explain how you may use our website and the rules that apply when you ask SIS Verification Services to verify an employee or a guarantor.',
+      ]}
+      sections={sections}
+    />
   );
 }

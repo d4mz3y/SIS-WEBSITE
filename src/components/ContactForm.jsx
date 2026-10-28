@@ -104,6 +104,10 @@ export default function ContactForm({ compact = false }) {
         By submitting this request you agree to our{' '}
         <Link to="/terms" className="text-gold underline-offset-4 hover:underline">
           Terms &amp; Conditions
+        </Link>{' '}
+        and acknowledge our{' '}
+        <Link to="/privacy" className="text-gold underline-offset-4 hover:underline">
+          Privacy Policy
         </Link>
         .
       </p>

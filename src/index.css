@@ -61,6 +61,24 @@
   }
 }
 
+/* Printing (the consent forms): A4 with even margins, and let the navy header bands keep their colour. */
+@page {
+  size: A4;
+  margin: 14mm;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+  }
+}
+
+.print-exact {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
 @layer utilities {
   /* 100vh first as the fallback, 100svh where supported (stops the mobile address bar from clipping the hero) */
   .min-h-hero {

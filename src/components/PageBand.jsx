@@ -8,7 +8,7 @@ export default function PageBand({ photoName }) {
   return (
     <div
       aria-hidden="true"
-      className="relative h-[34vh] min-h-[220px] w-full bg-wordmark sm:h-[52vh] sm:min-h-[360px]"
+      className="relative h-[34vh] min-h-[220px] w-full bg-wordmark print:hidden sm:h-[52vh] sm:min-h-[360px]"
     >
       {photo && (
         <>

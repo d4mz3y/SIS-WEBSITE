@@ -32,6 +32,29 @@ Needs Node 20.19 or newer.
   `verify@sisverification.com.ng`; the form will not deliver until that link is clicked.
 - **Old links** such as `/about.html` and `/service.html` redirect to the new pages.
 
+## Legal pages and consent forms
+
+| Page | Source |
+|---|---|
+| `/terms` Terms and Conditions | `src/pages/Terms.jsx` |
+| `/privacy` Privacy Policy | `src/pages/Privacy.jsx` |
+| `/consent` Consent forms for candidates (Form A) and guarantors (Form B) | `src/pages/Consent.jsx` |
+
+All three are drafts that need a Nigerian lawyer's review before they are relied on. When you change the Terms or the
+Privacy Policy, update `legalUpdated` in `src/data/site.js`.
+
+### Consent form PDFs
+
+The downloads in `public/documents/` are generated from the `/consent` page, so they match it exactly. After you edit
+`Consent.jsx`, regenerate them with the site running (`npm run dev`):
+
+```bash
+google-chrome --headless=new --no-pdf-header-footer --virtual-time-budget=10000 \
+  --print-to-pdf=public/documents/SIS-Consent-Form-A-Candidate.pdf "http://127.0.0.1:5173/consent?only=candidate"
+google-chrome --headless=new --no-pdf-header-footer --virtual-time-budget=10000 \
+  --print-to-pdf=public/documents/SIS-Consent-Form-B-Guarantor.pdf "http://127.0.0.1:5173/consent?only=guarantor"
+```
+
 ## Deploying
 
 The site is a single-page app, so the host must serve `index.html` for unknown paths.

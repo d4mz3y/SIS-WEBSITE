@@ -39,7 +39,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,box-shadow,border-color] duration-300 ${
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,box-shadow,border-color] duration-300 print:hidden ${
           solid
             ? 'border-gold/20 bg-navy/95 shadow-lg shadow-black/30 backdrop-blur-md'
             : 'border-transparent bg-transparent'

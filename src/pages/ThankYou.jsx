@@ -16,6 +16,14 @@ export default function ThankYou() {
           <p className="mt-4 leading-7 text-mist">
             Thank you. Our team will review your request and respond with a confidential intelligence brief.
           </p>
+          <p className="mx-auto mt-6 max-w-xl rounded-2xl border border-gold/25 bg-navy-card p-5 text-sm leading-6 text-mist">
+            <span className="font-bold text-gold">Next step:</span> before we start, each person being verified should
+            read and sign our{' '}
+            <Link to="/consent" className="font-semibold text-gold underline-offset-4 hover:underline">
+              consent form
+            </Link>
+            . Please email the signed copies to us.
+          </p>
           <Link to="/" className="btn-outline mt-8">
             Back to Home
           </Link>
