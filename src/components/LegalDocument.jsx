@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import PageBand from './PageBand.jsx';
+import PageHero from './PageHero.jsx';
 import { site } from '../data/site';
 
 // Shared layout for the legal pages (Terms, Privacy). A section body is a list of blocks:
@@ -52,21 +52,16 @@ function Block({ block }) {
 export default function LegalDocument({ title, intro, sections }) {
   return (
     <>
-      <PageBand />
-      <section className="bg-navy px-0 py-16 sm:py-24">
+      <PageHero photo="hero-legal" eyebrow="Legal" title={title} lead={`Last updated: ${site.legalUpdated}`} />
+      <section className="bg-navy px-0 py-14 sm:py-20">
         <div className="container-x max-w-3xl">
-          <header>
-            <span className="eyebrow block">Legal</span>
-            <h1 className="mt-4 text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">{title}</h1>
-            <p className="mt-4 text-sm text-white/60">Last updated: {site.legalUpdated}</p>
-            <div className="mt-6 space-y-4">
-              {intro.map((paragraph) => (
-                <p key={paragraph} className="leading-8 text-mist">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          </header>
+          <div className="space-y-4">
+            {intro.map((paragraph) => (
+              <p key={paragraph} className="leading-8 text-mist">
+                {paragraph}
+              </p>
+            ))}
+          </div>
 
           <nav aria-label="Contents" className="mt-10 rounded-2xl border border-gold/25 bg-navy-card p-6 sm:p-8">
             <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-gold">Contents</h2>

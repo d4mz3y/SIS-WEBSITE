@@ -1,4 +1,4 @@
-import PageBand from '../components/PageBand.jsx';
+import PageHero from '../components/PageHero.jsx';
 import CtaBox from '../components/CtaBox.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
 
@@ -26,20 +26,18 @@ export default function Method() {
 
   return (
     <>
-      <PageBand />
+      <PageHero
+        photo="hero-method"
+        eyebrow="Physical Address Intelligence (PAI)"
+        title={
+          <>
+            The PAI <span className="text-gold">Method</span>
+          </>
+        }
+        lead="At SIS Verification Services, we do not perform routine background checks. We execute a structured investigative workflow known as the PAI Method, designed to eliminate identity fraud, residency falsification, and guarantor risk."
+      />
       <section className="bg-navy px-0 py-16 text-white sm:py-24">
         <div className="container-x max-w-6xl">
-          <header className="mx-auto mb-14 max-w-3xl text-center">
-            <h1 className="text-3xl font-extrabold text-gold sm:text-4xl lg:text-[2.6rem]">
-              The PAI <span className="text-white">Method</span>
-            </h1>
-            <p className="mt-3 text-mist">Physical Address Intelligence (PAI)</p>
-            <p className="mt-5 leading-8 text-mist">
-              At SIS Verification Services, we do not perform routine background checks. We execute a structured
-              investigative workflow known as the PAI Method, designed to eliminate identity fraud, residency
-              falsification, and guarantor risk.
-            </p>
-          </header>
 
           <ul className="grid gap-6 md:grid-cols-2">
             {pillars.map(({ title, text }) => (

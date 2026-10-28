@@ -1,5 +1,5 @@
 import { FiCheck, FiCompass, FiShield } from 'react-icons/fi';
-import PageBand from '../components/PageBand.jsx';
+import PageHero from '../components/PageHero.jsx';
 import CtaBox from '../components/CtaBox.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
 
@@ -10,19 +10,14 @@ export default function About() {
 
   return (
     <>
-      <PageBand />
+      <PageHero
+        photo="hero-about"
+        eyebrow="About SIS"
+        title="Specialized Intelligence for Modern Enterprise."
+        lead="SIS Verification Services delivers field-first intelligence and forensic verification solutions designed to protect organizations from fraud, liability, and operational risk."
+      />
       <section className="bg-navy px-0 py-16 text-white sm:py-24">
         <div className="container-x max-w-6xl">
-          <header className="mx-auto mb-14 max-w-3xl text-center">
-            <span className="eyebrow block">About SIS</span>
-            <h1 className="mt-4 text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
-              Specialized Intelligence for Modern Enterprise.
-            </h1>
-            <p className="mt-5 leading-8 text-mist">
-              SIS Verification Services delivers field-first intelligence and forensic verification solutions designed
-              to protect organizations from fraud, liability, and operational risk.
-            </p>
-          </header>
 
           <div className="grid gap-6 lg:grid-cols-3">
             <article className="rounded-[2rem] border border-gold/25 bg-navy-card p-7 shadow-card transition duration-300 hover:-translate-y-1.5 sm:p-10 lg:col-span-3">

@@ -1,6 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom';
 import { FiDownload, FiPrinter } from 'react-icons/fi';
-import PageBand from '../components/PageBand.jsx';
+import PageHero from '../components/PageHero.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
 import logo from '../assets/brand/logo.webp';
 import { site } from '../data/site';
@@ -208,21 +208,18 @@ export default function Consent() {
 
   return (
     <>
-      <PageBand />
-      <section className="bg-navy px-0 py-16 print:bg-white print:py-0 sm:py-24">
+      {!only && (
+        <PageHero
+          photo="hero-legal"
+          eyebrow="For clients and the people we verify"
+          title="Verification Consent Forms"
+          lead="Before we verify anyone, we need to know they have agreed. Ask each candidate and each guarantor to read and sign the relevant form, then send us the signed copies with your request. Keep a copy for your records."
+        />
+      )}
+      <section className={`bg-navy px-0 py-14 print:bg-white print:py-0 sm:py-20 ${only ? 'pt-32' : ''}`}>
         <div className="container-x max-w-4xl print:max-w-none print:px-0">
           {!only && (
-            <header className="mb-12 print:hidden">
-              <span className="eyebrow block">For clients and the people we verify</span>
-              <h1 className="mt-4 text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
-                Verification Consent Forms
-              </h1>
-              <p className="mt-5 max-w-3xl leading-8 text-mist">
-                Before we verify anyone, we need to know they have agreed. Ask each candidate and each guarantor to
-                read and sign the relevant form, then send us the signed copies with your request. Keep a copy for
-                your records.
-              </p>
-
+            <div className="mb-12 print:hidden">
               <ol className="mt-8 grid gap-4 sm:grid-cols-3">
                 {[
                   ['1', 'Download or print', 'Use Form A for the candidate and Form B for each guarantor.'],
@@ -251,7 +248,7 @@ export default function Consent() {
                   Print this page
                 </button>
               </div>
-            </header>
+            </div>
           )}
 
           <div className="space-y-12 print:space-y-0">

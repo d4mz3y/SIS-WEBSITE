@@ -10,9 +10,10 @@ import {
   FiShield,
   FiUserCheck,
   FiUsers,
-  FiVideo,
 } from 'react-icons/fi';
 import Photo from '../components/Photo.jsx';
+import AnimatedShield from '../components/AnimatedShield.jsx';
+import GlobeTracker from '../components/GlobeTracker.jsx';
 import ContactForm from '../components/ContactForm.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
 import { site } from '../data/site';
@@ -44,14 +45,12 @@ const facilities = [
     photo: 'facility-vetting',
     Icon: FiUsers,
     title: 'Reliable Personnel Vetting',
-    alt: 'Two professionals in an interview, taking notes at a table',
+    alt: 'A Nigerian professional in a dark shirt and glasses',
     text: 'Mitigate internal risks with detailed staff profiling and integrity assessments, ensuring your team is composed of trustworthy and verified individuals.',
   },
   {
-    photo: 'facility-surveillance',
-    Icon: FiVideo,
+    visual: 'globe',
     title: 'Advanced Surveillance',
-    alt: 'Rows of security cameras mounted on a wall',
     text: 'Utilizing high-tech monitoring solutions and on-ground intelligence to support our field operations with real-time security updates, so every verification is carried out safely and securely.',
   },
 ];
@@ -60,7 +59,7 @@ const steps = [
   { photo: 'step-identity', Icon: FiCreditCard, title: 'Identity Confirmation', alt: 'An open passport with entry stamps and travel documents', text: 'We verify identity using valid identification documents and records.' },
   { photo: 'step-address', Icon: FiMapPin, title: 'Address Verification', alt: 'A busy street scene with motor tricycles in Nigeria', text: 'Field officers physically confirm residence and environment.' },
   { photo: 'step-guarantor', Icon: FiUserCheck, title: 'Guarantor Verification', alt: 'Two people shaking hands to seal an agreement', text: 'We confirm guarantors are real, reachable and reliable.' },
-  { photo: 'step-employment', Icon: FiBriefcase, title: 'Employment Checks', alt: 'Colleagues meeting around a table in an office', text: 'We verify workplace history and professional credibility.' },
+  { photo: 'step-employment', Icon: FiBriefcase, title: 'Employment Checks', alt: 'Two Nigerian colleagues working together at a laptop', text: 'We verify workplace history and professional credibility.' },
   { photo: 'step-report', Icon: FiFileText, title: 'Risk Assessment', alt: 'Performance metrics dashboard shown on a screen', text: 'We assess the risk in every finding and compile it into a structured intelligence report.' },
 ];
 
@@ -84,9 +83,11 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-hero min-h-hero flex items-center pb-20 pt-28 text-white">
-        <div className="container-x">
+      <section className="bg-hero min-h-hero relative flex items-center overflow-hidden pb-20 pt-28 text-white">
+        <AnimatedShield className="pointer-events-none absolute right-[3%] top-1/2 hidden w-[min(38vw,580px)] -translate-y-1/2 lg:block" />
+        <div className="container-x relative">
           <div className="mx-auto max-w-4xl text-center lg:mx-0 lg:max-w-xl lg:text-left xl:max-w-2xl">
+            <AnimatedShield className="mx-auto mb-6 w-44 sm:w-56 lg:hidden" />
             <h1 className="text-[2rem] font-bold leading-tight sm:text-5xl xl:text-6xl">
               The <span className="text-gold">GOLD STANDARD</span> FOR CORPORATE INTEGRITY.
             </h1>
@@ -146,10 +147,10 @@ export default function Home() {
             </p>
           </div>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {facilities.map(({ photo, Icon, title, alt, text }) => (
+            {facilities.map(({ photo, visual, Icon, title, alt, text, position }) => (
               <article key={title}>
                 <div className="aspect-[16/10] overflow-hidden rounded-xl">
-                  <Photo name={photo} alt={alt} Icon={Icon} />
+                  {visual === 'globe' ? <GlobeTracker /> : <Photo name={photo} alt={alt} Icon={Icon} position={position} />}
                 </div>
                 <h3 className="mb-3 mt-5 text-lg font-bold text-navy">{title}</h3>
                 <p className="text-sm leading-7 text-navy/80">{text}</p>
@@ -171,7 +172,7 @@ export default function Home() {
             </p>
           </div>
           <ol className="space-y-6">
-            {steps.map(({ photo, Icon, title, alt, text }, index) => (
+            {steps.map(({ photo, Icon, title, alt, text, position }, index) => (
               <li
                 key={title}
                 className="flex flex-col gap-5 rounded-2xl border border-navy/5 bg-white p-5 shadow-soft transition duration-300 hover:-translate-y-1 md:flex-row md:items-center"
@@ -186,7 +187,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="h-44 w-full shrink-0 overflow-hidden rounded-xl md:h-[100px] md:w-[140px]">
-                  <Photo name={photo} alt={alt} Icon={Icon} />
+                  <Photo name={photo} alt={alt} Icon={Icon} position={position} />
                 </div>
               </li>
             ))}
@@ -195,8 +196,10 @@ export default function Home() {
       </section>
 
       {/* PAI method */}
-      <section className="bg-band px-5 py-20 text-center text-white sm:py-24">
-        <div className="mx-auto max-w-xl">
+      <section className="bg-band relative overflow-hidden px-5 py-20 text-center text-white sm:py-24">
+        <AnimatedShield className="pointer-events-none absolute right-[5%] top-1/2 hidden w-[min(22vw,320px)] -translate-y-1/2 xl:block" />
+        <div className="relative mx-auto max-w-xl">
+          <AnimatedShield className="mx-auto mb-5 w-32 xl:hidden" />
           <h2 className="text-3xl font-bold sm:text-4xl">
             The PAI <span className="text-gold">Method</span>
           </h2>

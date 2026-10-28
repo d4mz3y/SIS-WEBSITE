@@ -2,9 +2,10 @@
 // src/assets/photos/ named after its slot, e.g. facility-database.webp. No code change needed.
 //
 // Slots in use:
-//   facility-database, facility-vetting, facility-surveillance   (home: Our Facilities)
+//   facility-database, facility-vetting   (home: Our Facilities. The Advanced Surveillance card is the GlobeTracker)
 //   step-identity, step-address, step-guarantor, step-employment, step-report   (home: How We Verify)
-//   contact-header   (contact page banner)
+//   hero-about, hero-method, hero-services, hero-contact, hero-legal, hero-thanks   (inner-page heroes)
+// Any photo of a person must show a Black Nigerian. Photos of places should be shot in Nigeria.
 const files = import.meta.glob('../assets/photos/*.{webp,jpg,jpeg,png}', {
   eager: true,
   query: '?url',

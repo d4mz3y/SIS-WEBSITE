@@ -86,44 +86,13 @@
     min-height: 100svh;
   }
 
-  /* Slim banner under the navbar on inner pages: just the navy glow, so the header logo is the only logo on screen. */
-  .bg-banner {
-    background-color: #02031c;
-    background-image: radial-gradient(60% 120% at 88% 60%, rgba(23, 64, 150, 0.32), transparent 70%),
-      radial-gradient(45% 90% at 8% 0%, rgba(255, 195, 0, 0.05), transparent 70%);
-    background-repeat: no-repeat;
-  }
-
-  /*
-   * Hero and banner backgrounds. The shield is its own cut-out asset instead of part of one wide
-   * photo, so it stays at the right edge and never ends up behind the text or half cropped.
-   * It only shows from desktop widths up; phones and tablets get the plain glow.
-   */
+  /* Navy with a soft blue glow, behind the home hero and the PAI band. The shield on top of it is the animated
+     AnimatedShield component, not a background image. */
   .bg-hero,
   .bg-band {
     background-color: #02031c;
     background-image: radial-gradient(60% 90% at 88% 60%, rgba(23, 64, 150, 0.32), transparent 70%),
       radial-gradient(45% 70% at 8% 0%, rgba(255, 195, 0, 0.05), transparent 70%);
     background-repeat: no-repeat;
-  }
-
-  @media (min-width: 1024px) {
-    .bg-hero {
-      background-image: url('./assets/brand/shield.webp'),
-        radial-gradient(60% 90% at 88% 60%, rgba(23, 64, 150, 0.32), transparent 70%),
-        radial-gradient(45% 70% at 8% 0%, rgba(255, 195, 0, 0.05), transparent 70%);
-      background-size: min(36vw, 560px), auto, auto;
-      background-position: 96% 52%, center, center;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .bg-band {
-      background-image: url('./assets/brand/shield.webp'),
-        radial-gradient(60% 90% at 88% 60%, rgba(23, 64, 150, 0.32), transparent 70%),
-        radial-gradient(45% 70% at 8% 0%, rgba(255, 195, 0, 0.05), transparent 70%);
-      background-size: min(24vw, 340px), auto, auto;
-      background-position: 97% 50%, center, center;
-    }
   }
 }

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FiArrowRight, FiFileText, FiMapPin, FiSearch, FiShield } from 'react-icons/fi';
 import CtaBox from '../components/CtaBox.jsx';
-import PageBand from '../components/PageBand.jsx';
+import PageHero from '../components/PageHero.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
 
 const services = [
@@ -36,20 +36,14 @@ export default function Services() {
 
   return (
     <>
-      <PageBand />
+      <PageHero
+        photo="hero-services"
+        eyebrow="Our Services"
+        title="Forensic Verification Solutions Built for High-Trust Environments"
+        lead="SIS Verification Services provides forensic human capital verification solutions designed for organizations operating in high-risk, high-trust environments. Each service is built to eliminate uncertainty and deliver verifiable truth."
+      />
       <section className="overflow-hidden bg-navy px-0 py-16 text-white sm:py-24">
         <div className="container-x max-w-6xl">
-          <header className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
-            <span className="eyebrow block">Our Services</span>
-            <h1 className="mt-5 text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
-              Forensic Verification Solutions Built for High-Trust Environments
-            </h1>
-            <p className="mt-6 leading-8 text-mist">
-              SIS Verification Services provides forensic human capital verification solutions designed for
-              organizations operating in high-risk, high-trust environments. Each service is built to eliminate
-              uncertainty and deliver verifiable truth.
-            </p>
-          </header>
 
           <ul className="grid gap-6 lg:grid-cols-2 lg:gap-8">
             {services.map(({ Icon, title, text, highlight }) => (

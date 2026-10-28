@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import PageBand from '../components/PageBand.jsx';
+import PageHero from '../components/PageHero.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
 
 export default function NotFound() {
@@ -7,13 +7,15 @@ export default function NotFound() {
 
   return (
     <>
-      <PageBand />
-      <section className="bg-navy px-0 py-16 text-center sm:py-24">
+      <PageHero
+        photo="hero-thanks"
+        eyebrow="Error 404"
+        title="We could not find that page"
+        lead="The address may have changed or been typed incorrectly."
+      />
+      <section className="bg-navy px-0 py-14 text-center sm:py-20">
         <div className="container-x max-w-2xl">
-          <p className="eyebrow">Error 404</p>
-          <h1 className="mt-4 text-3xl font-bold text-white sm:text-4xl">We could not find that page</h1>
-          <p className="mt-4 leading-7 text-mist">The address may have changed or been typed incorrectly.</p>
-          <Link to="/" className="btn-gold mt-8">
+          <Link to="/" className="btn-gold">
             Back to Home
           </Link>
         </div>

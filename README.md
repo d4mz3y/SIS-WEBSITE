@@ -27,6 +27,13 @@ Needs Node 20.19 or newer.
 ## Things to know
 
 - **Photos are real photographs only.** To change one, replace the file in `src/assets/photos/` keeping the same name.
+  Any photo of a person must show a Black Nigerian; places should be shot in Nigeria. `CREDITS.md` there records how
+  each photo was chosen.
+- **Page heroes:** every inner page opens with a large hero (`src/components/PageHero.jsx`): a Nigerian photo that
+  drifts slowly, a faint scan line and pulsing GPS markers. The photo is `hero-<page>.webp` in the photos folder.
+- **Animation:** the home hero and PAI shield (`AnimatedShield.jsx`), the globe tracker on the Advanced Surveillance
+  card (`GlobeTracker.jsx`) and the page heroes all animate, and all stop for visitors who have turned on
+  "reduce motion" in their device settings.
 - **Details only the business can supply** (registered company name, CAC/RC number, office address, WhatsApp number,
   social profile URLs) are slots at the top of `src/data/site.js`. Each one appears in the footer, and the company
   details also in the Terms, only once it is filled in.
