@@ -5,6 +5,8 @@ export const site = {
   email: 'verify@sisverification.com.ng',
   phone: '+234 706 503 0051',
   phoneHref: 'tel:+2347065030051',
+  // Shown at the top of the Terms page. Update it whenever the Terms change.
+  termsUpdated: '28 October 2026',
   // Paste the real profile URL for each network. An icon only shows in the footer once its href is filled in.
   socials: [
     { key: 'facebook', label: 'Facebook', href: '' },

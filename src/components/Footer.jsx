@@ -91,9 +91,14 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <p className="container-x py-6 text-center text-sm text-white/50">
-          &copy; {new Date().getFullYear()} {site.name}. All Rights Reserved.
-        </p>
+        <div className="container-x flex flex-col items-center justify-between gap-2 py-6 text-sm text-white/50 sm:flex-row">
+          <p className="text-center">
+            &copy; {new Date().getFullYear()} {site.name}. All Rights Reserved.
+          </p>
+          <Link to="/terms" className="py-1 transition-colors hover:text-gold">
+            Terms &amp; Conditions
+          </Link>
+        </div>
       </div>
     </footer>
   );

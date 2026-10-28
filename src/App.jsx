@@ -6,6 +6,7 @@ import Method from './pages/Method.jsx';
 import Services from './pages/Services.jsx';
 import Contact from './pages/Contact.jsx';
 import ThankYou from './pages/ThankYou.jsx';
+import Terms from './pages/Terms.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 // The old static site used .html URLs. These keep old links and bookmarks working.
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="services" element={<Services />} />
         <Route path="contact" element={<Contact />} />
         <Route path="thank-you" element={<ThankYou />} />
+        <Route path="terms" element={<Terms />} />
         {Object.entries(legacyRedirects).map(([from, to]) => (
           <Route key={from} path={from} element={<Navigate to={to} replace />} />
         ))}

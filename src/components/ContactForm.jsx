@@ -1,5 +1,5 @@
 import { useId, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { site, serviceOptions } from '../data/site';
 
 // FormSubmit's AJAX endpoint: no backend needed. The first real submission emails an activation
@@ -99,6 +99,14 @@ export default function ContactForm({ compact = false }) {
       <button type="submit" disabled={sending} className="btn-gold w-full py-4 disabled:cursor-wait disabled:opacity-70">
         {sending ? 'Sending...' : 'Submit Request'}
       </button>
+
+      <p className="text-center text-xs leading-5 text-white/60">
+        By submitting this request you agree to our{' '}
+        <Link to="/terms" className="text-gold underline-offset-4 hover:underline">
+          Terms &amp; Conditions
+        </Link>
+        .
+      </p>
 
       <p role="alert" aria-live="polite" className="min-h-[1.25rem] text-center text-sm text-red-300">
         {status === 'error' && (
