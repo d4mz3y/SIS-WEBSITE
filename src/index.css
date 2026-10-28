@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: #02031c;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply font-sans text-navy antialiased;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  img {
+    @apply block max-w-full;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-gold ring-offset-2 ring-offset-navy;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply text-sm font-semibold uppercase tracking-[0.25em] text-gold;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-bold transition duration-300;
+  }
+
+  .btn-gold {
+    @apply btn bg-gold text-navy hover:bg-white;
+  }
+
+  .btn-outline {
+    @apply btn border border-white/80 text-white hover:border-gold hover:bg-gold hover:text-navy;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-gold/30 bg-navy px-4 py-3.5 text-base text-white placeholder:text-white/50 transition focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40;
+  }
+
+  .footer-heading {
+    @apply mb-5 text-sm font-bold uppercase tracking-[0.2em] text-gold;
+  }
+}
+
+@layer utilities {
+  /* 100vh first as the fallback, 100svh where supported (stops the mobile address bar from clipping the hero) */
+  .min-h-hero {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  .bg-wordmark {
+    background-color: #02031c;
+    background-image: url('./assets/brand/wordmark-bg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  /*
+   * Hero and banner backgrounds. The shield is its own cut-out asset instead of part of one wide
+   * photo, so it stays at the right edge and never ends up behind the text or half cropped.
+   * It only shows from desktop widths up; phones and tablets get the plain glow.
+   */
+  .bg-hero,
+  .bg-band {
+    background-color: #02031c;
+    background-image: radial-gradient(60% 90% at 88% 60%, rgba(23, 64, 150, 0.32), transparent 70%),
+      radial-gradient(45% 70% at 8% 0%, rgba(255, 195, 0, 0.05), transparent 70%);
+    background-repeat: no-repeat;
+  }
+
+  @media (min-width: 1024px) {
+    .bg-hero {
+      background-image: url('./assets/brand/shield.webp'),
+        radial-gradient(60% 90% at 88% 60%, rgba(23, 64, 150, 0.32), transparent 70%),
+        radial-gradient(45% 70% at 8% 0%, rgba(255, 195, 0, 0.05), transparent 70%);
+      background-size: min(36vw, 560px), auto, auto;
+      background-position: 96% 52%, center, center;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .bg-band {
+      background-image: url('./assets/brand/shield.webp'),
+        radial-gradient(60% 90% at 88% 60%, rgba(23, 64, 150, 0.32), transparent 70%),
+        radial-gradient(45% 70% at 8% 0%, rgba(255, 195, 0, 0.05), transparent 70%);
+      background-size: min(24vw, 340px), auto, auto;
+      background-position: 97% 50%, center, center;
+    }
+  }
+}
