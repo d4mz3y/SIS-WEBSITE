@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { FiFileText, FiMapPin, FiSearch, FiShield } from 'react-icons/fi';
+import { FiArrowRight, FiFileText, FiMapPin, FiSearch, FiShield } from 'react-icons/fi';
+import CtaBox from '../components/CtaBox.jsx';
 import PageBand from '../components/PageBand.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
 
@@ -25,13 +26,13 @@ const services = [
   {
     Icon: FiFileText,
     title: 'Risk Profiling & Reporting',
-    text: 'We deliver structured intelligence reports combining physical verification, HUM-INT, and data cross-referencing for confident decision-making.',
+    text: 'We deliver structured intelligence reports combining physical verification, HUMINT, and data cross-referencing for confident decision-making.',
     highlight: 'Turn uncertainty into informed action.',
   },
 ];
 
 export default function Services() {
-  usePageMeta('Our Services', 'Employee verification, guarantor vetting, field intelligence operations and risk profiling from SIS Verification Services.');
+  usePageMeta('/services');
 
   return (
     <>
@@ -66,20 +67,21 @@ export default function Services() {
                   <p className="inline-block rounded-2xl border border-gold/25 bg-gold/10 px-[18px] py-3 text-sm font-semibold text-gold">
                     {highlight}
                   </p>
+                  <div className="mt-6">
+                    <Link
+                      to={`/contact?service=${encodeURIComponent(title)}`}
+                      className="inline-flex items-center gap-2 text-sm font-bold text-white transition-colors hover:text-gold"
+                    >
+                      Request this service
+                      <FiArrowRight aria-hidden="true" />
+                    </Link>
+                  </div>
                 </div>
               </li>
             ))}
           </ul>
 
-          <div className="mt-16 rounded-3xl border border-gold/30 bg-navy-card px-6 py-10 text-center sm:mt-20 sm:p-12">
-            <h2 className="mb-2 text-2xl font-bold text-gold">Need Trusted Verification Intelligence?</h2>
-            <p className="mb-7 text-mist">
-              Submit a request and our team will respond with a confidential intelligence brief.
-            </p>
-            <Link to="/contact" className="btn-gold px-8 py-3.5">
-              Request Verification
-            </Link>
-          </div>
+          <CtaBox className="mt-16 sm:mt-20" />
         </div>
       </section>
     </>

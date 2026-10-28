@@ -1,5 +1,6 @@
 import LegalDocument, { LegalLink } from '../components/LegalDocument.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
+import { site } from '../data/site';
 
 const sections = [
   {
@@ -7,6 +8,14 @@ const sections = [
     title: 'About us',
     body: [
       'SIS Verification Services (“SIS”, “we”, “us”, “our”) is a field-focused intelligence company that verifies employees and guarantors using physical, evidence-based methods. Our services include identity confirmation, address verification, guarantor verification, employment checks, field intelligence operations, and risk profiling and reporting (the “Services”).',
+      ...(site.legalName
+        ? [
+            `SIS Verification Services is operated by ${site.legalName}${
+              site.rcNumber ? `, registered in Nigeria under RC number ${site.rcNumber}` : ''
+            }${site.address ? `, of ${site.address}` : ''}.`,
+          ]
+        : []),
+      'We carry out verification using our field-first PAI (Physical Address Intelligence) Method, as described on our Method page. It combines a physical visit to the declared residence or workplace to confirm existence, occupancy and authenticity; GPS-tagged, timestamped photographs and location data as evidence; discreet enquiries with people who know the person; and a report that, where relevant and lawfully available, cross-references national identifiers such as NIN or BVN.',
     ],
   },
   {
@@ -218,10 +227,7 @@ const sections = [
 ];
 
 export default function Terms() {
-  usePageMeta(
-    'Terms and Conditions',
-    'The terms that apply to using the SIS Verification Services website and to requesting employee, guarantor and field verification services.',
-  );
+  usePageMeta('/terms');
 
   return (
     <LegalDocument

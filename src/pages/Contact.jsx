@@ -3,7 +3,7 @@ import ContactForm from '../components/ContactForm.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
 
 export default function Contact() {
-  usePageMeta('Request Verification', 'Send SIS Verification Services a confidential verification request for an employee or guarantor.');
+  usePageMeta('/contact');
 
   return (
     <>

@@ -3,7 +3,7 @@ import PageBand from '../components/PageBand.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
 
 export default function NotFound() {
-  usePageMeta('Page not found');
+  usePageMeta('/404');
 
   return (
     <>

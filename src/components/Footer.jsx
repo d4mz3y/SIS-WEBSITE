@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { FiMail, FiPhone } from 'react-icons/fi';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
+import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp, FaXTwitter } from 'react-icons/fa6';
 import logo from '../assets/brand/logo.webp';
 import { footerLinks, legalLinks, site } from '../data/site';
 
@@ -27,6 +27,12 @@ export default function Footer() {
             <img src={logo} alt={site.name} width="800" height="285" loading="lazy" className="mx-auto h-16 w-auto sm:mx-0" />
           </Link>
           <p className="mx-auto mt-5 max-w-md text-sm leading-7 text-white/70 sm:mx-0">{site.blurb}</p>
+          {site.legalName && (
+            <p className="mx-auto mt-3 max-w-md text-xs leading-6 text-white/50 sm:mx-0">
+              {site.legalName}
+              {site.rcNumber && ` · RC ${site.rcNumber}`}
+            </p>
+          )}
         </div>
 
         <nav aria-label="Footer">
@@ -63,6 +69,25 @@ export default function Footer() {
                 {site.phone}
               </a>
             </li>
+            {site.whatsapp && (
+              <li>
+                <a
+                  href={`https://wa.me/${site.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 text-white/85 transition-colors hover:text-gold sm:justify-start"
+                >
+                  <FaWhatsapp className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
+                  Chat on WhatsApp
+                </a>
+              </li>
+            )}
+            {site.address && (
+              <li className="inline-flex items-start justify-center gap-3 text-white/85 sm:justify-start">
+                <FiMapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
+                <span>{site.address}</span>
+              </li>
+            )}
           </ul>
         </div>
 

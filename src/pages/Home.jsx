@@ -24,7 +24,7 @@ const reasons = [
   },
   {
     title: 'Tamper-Proof Evidence',
-    text: 'Every report is backed by GPS-tagged metadata and timestamped photography, creating audit-proof proof of presence.',
+    text: 'Every report is backed by GPS-tagged metadata and timestamped photography, creating audit-proof evidence of presence.',
   },
   {
     title: 'Corporate Risk Reduction',
@@ -38,7 +38,7 @@ const facilities = [
     Icon: FiDatabase,
     title: 'Global Database Access',
     alt: 'Server racks with network cabling in a data centre',
-    text: 'Access an extensive network of global databases to ensure every background check and identity verification is thorough, accurate, and up to international standards.',
+    text: 'Access an extensive network of global databases so that every identity verification is thorough, accurate, and up to international standards.',
   },
   {
     photo: 'facility-vetting',
@@ -52,16 +52,16 @@ const facilities = [
     Icon: FiVideo,
     title: 'Advanced Surveillance',
     alt: 'Rows of security cameras mounted on a wall',
-    text: 'Utilizing high-tech monitoring solutions and on-ground intelligence to provide real-time security updates and robust protection for your physical and digital assets.',
+    text: 'Utilizing high-tech monitoring solutions and on-ground intelligence to support our field operations with real-time security updates, so every verification is carried out safely and securely.',
   },
 ];
 
 const steps = [
-  { photo: 'step-identity', Icon: FiCreditCard, title: 'Identity Confirmation', alt: 'An open passport with entry stamps and travel documents', text: 'We verify identity using valid documentation and background checks.' },
+  { photo: 'step-identity', Icon: FiCreditCard, title: 'Identity Confirmation', alt: 'An open passport with entry stamps and travel documents', text: 'We verify identity using valid identification documents and records.' },
   { photo: 'step-address', Icon: FiMapPin, title: 'Address Verification', alt: 'A busy street scene with motor tricycles in Nigeria', text: 'Field officers physically confirm residence and environment.' },
   { photo: 'step-guarantor', Icon: FiUserCheck, title: 'Guarantor Verification', alt: 'Two people shaking hands to seal an agreement', text: 'We confirm guarantors are real, reachable and reliable.' },
   { photo: 'step-employment', Icon: FiBriefcase, title: 'Employment Checks', alt: 'Colleagues meeting around a table in an office', text: 'We verify workplace history and professional credibility.' },
-  { photo: 'step-report', Icon: FiFileText, title: 'Risk Assessment', alt: 'Performance metrics dashboard shown on a screen', text: 'All findings are compiled into structured intelligence reports.' },
+  { photo: 'step-report', Icon: FiFileText, title: 'Risk Assessment', alt: 'Performance metrics dashboard shown on a screen', text: 'We assess the risk in every finding and compile it into a structured intelligence report.' },
 ];
 
 const industries = [
@@ -79,10 +79,7 @@ const industries = [
 const assurances = ['GPS-tagged reports', 'Confidential investigations', 'Evidence-based verification'];
 
 export default function Home() {
-  usePageMeta(
-    '',
-    'SIS Verification Services is a field-focused intelligence company that verifies employees and guarantors with physical, evidence-based methods across Nigeria.',
-  );
+  usePageMeta('/');
 
   return (
     <>
@@ -96,9 +93,14 @@ export default function Home() {
             <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg lg:mx-0">
               Forensic Employee Verification, Guarantor Vetting and Risk Assessments.
             </p>
-            <Link to="/about" className="btn-outline mt-9">
-              Visit Us To Know More
-            </Link>
+            <div className="mt-9 flex flex-wrap justify-center gap-3 lg:justify-start">
+              <Link to="/contact" className="btn-gold">
+                Request Verification
+              </Link>
+              <Link to="/about" className="btn-outline">
+                Learn More About Us
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -108,7 +110,7 @@ export default function Home() {
         <div className="container-x">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-semibold text-navy sm:text-4xl">
-              Why Leading Organizations <span className="text-gold">Choose SIS</span>
+              Why Leading Organizations <span className="text-gold-ink">Choose SIS</span>
             </h2>
             <p className="mt-5 leading-7 text-navy/80">
               Organizations trust SIS Verification Services because we deliver more than routine background checks.
@@ -135,7 +137,7 @@ export default function Home() {
       <section className="bg-white pb-16 sm:pb-20">
         <div className="container-x">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-semibold text-gold sm:text-4xl">Our Facilities</h2>
+            <h2 className="text-3xl font-semibold text-gold-ink sm:text-4xl">Our Facilities</h2>
             <p className="mt-5 leading-7 text-navy/80">
               Our operational facilities are designed to support accurate, secure, and efficient verification
               processes. Equipped with modern communication systems, secure data handling procedures, and coordinated
@@ -161,7 +163,7 @@ export default function Home() {
       <section className="bg-white pb-16 sm:pb-24">
         <div className="container-x max-w-5xl">
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <span className="text-sm font-bold tracking-[0.2em] text-gold">HOW WE VERIFY</span>
+            <span className="text-sm font-bold tracking-[0.2em] text-gold-ink">HOW WE VERIFY</span>
             <h2 className="mt-2 text-3xl font-bold text-navy sm:text-4xl">Our Structured Verification Process</h2>
             <p className="mt-4 leading-7 text-navy/80">
               SIS Verification Services follows a detailed field-first investigative process designed to eliminate
@@ -212,7 +214,7 @@ export default function Home() {
       <section className="bg-white py-16 text-center sm:py-20">
         <div className="container-x">
           <h2 className="text-3xl font-bold uppercase text-navy sm:text-4xl">
-            Industries <span className="text-gold">We Serve</span>
+            Industries <span className="text-gold-ink">We Serve</span>
           </h2>
           <p className="mb-12 mt-3 inline-block border-b-[3px] border-gold pb-1 text-lg text-navy">
             Trusted Across Critical Industries
@@ -221,7 +223,7 @@ export default function Home() {
             {industries.map((name) => (
               <li
                 key={name}
-                className="rounded-lg border-l-[5px] border-gold bg-navy p-6 font-semibold text-white transition duration-300 hover:-translate-y-1 hover:bg-gold hover:text-navy"
+                className="rounded-lg border-l-[5px] border-gold bg-navy p-6 font-semibold text-white"
               >
                 {name}
               </li>
@@ -236,7 +238,7 @@ export default function Home() {
           <div>
             <span className="eyebrow">Request Verification</span>
             <h2 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl">
-              Evidence-Based Verification, <span className="text-gold">You Can Trust</span>
+              Evidence-Based Verification <span className="text-gold">You Can Trust</span>
             </h2>
             <p className="mt-5 max-w-xl leading-7 text-mist">
               SIS Verification Services helps organizations reduce fraud and hiring risk through physical
@@ -285,7 +287,7 @@ export default function Home() {
           <div className="rounded-3xl border border-gold/25 bg-navy-card p-6 shadow-card sm:p-8">
             <h3 className="mb-1 text-xl font-bold text-gold">Request Intelligence Brief</h3>
             <p className="mb-6 text-sm text-mist">All submissions are handled with strict confidentiality.</p>
-            <ContactForm compact />
+            <ContactForm />
           </div>
         </div>
       </section>

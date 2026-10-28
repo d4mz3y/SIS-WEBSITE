@@ -1,11 +1,12 @@
 import { FiCheck, FiCompass, FiShield } from 'react-icons/fi';
 import PageBand from '../components/PageBand.jsx';
+import CtaBox from '../components/CtaBox.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
 
 const trust = ['GPS-Tagged Reports', 'Nationwide Field Operations', 'Confidential Investigations', 'Evidence-Based Verification'];
 
 export default function About() {
-  usePageMeta('About Us', 'SIS Verification Services delivers field-first intelligence and forensic verification that protects organizations from fraud, liability and operational risk.');
+  usePageMeta('/about');
 
   return (
     <>
@@ -71,6 +72,8 @@ export default function About() {
               </p>
             </article>
           </div>
+
+          <CtaBox className="mt-16" />
         </div>
       </section>
     </>

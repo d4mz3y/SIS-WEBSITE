@@ -86,12 +86,12 @@
     min-height: 100svh;
   }
 
-  .bg-wordmark {
+  /* Slim banner under the navbar on inner pages: just the navy glow, so the header logo is the only logo on screen. */
+  .bg-banner {
     background-color: #02031c;
-    background-image: url('./assets/brand/wordmark-bg.webp');
+    background-image: radial-gradient(60% 120% at 88% 60%, rgba(23, 64, 150, 0.32), transparent 70%),
+      radial-gradient(45% 90% at 8% 0%, rgba(255, 195, 0, 0.05), transparent 70%);
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
   }
 
   /*

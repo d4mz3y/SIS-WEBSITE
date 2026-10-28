@@ -4,7 +4,7 @@ import PageBand from '../components/PageBand.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
 
 export default function ThankYou() {
-  usePageMeta('Request Received');
+  usePageMeta('/thank-you');
 
   return (
     <>

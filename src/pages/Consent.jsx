@@ -202,8 +202,8 @@ export default function Consent() {
   const single = only && shown.length === 1 ? shown[0] : null;
 
   usePageMeta(
-    single ? `${single.label} (${single.who}): Verification Consent Form` : 'Verification Consent Forms',
-    'Printable consent forms for candidates and guarantors to sign before SIS Verification Services carries out a check.',
+    '/consent',
+    single ? { title: `${single.label} (${single.who}): Verification Consent Form | SIS Verification Services` } : {},
   );
 
   return (

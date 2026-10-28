@@ -1,5 +1,5 @@
 import { useId, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { site, serviceOptions } from '../data/site';
 
 // FormSubmit's AJAX endpoint: no backend needed. The first real submission emails an activation
@@ -20,6 +20,10 @@ function Field({ id, label, children }) {
 export default function ContactForm({ compact = false }) {
   const uid = useId();
   const navigate = useNavigate();
+  // Links like /contact?service=Guarantor%20Vetting arrive with that service already chosen.
+  const [params] = useSearchParams();
+  const requested = params.get('service');
+  const preselected = serviceOptions.includes(requested) ? requested : '';
   const [status, setStatus] = useState('idle'); // idle | sending | error
   const id = (name) => `${uid}-${name}`;
 
@@ -75,7 +79,7 @@ export default function ContactForm({ compact = false }) {
       )}
 
       <Field id={id('service')} label="Service">
-        <select id={id('service')} name="service" required defaultValue="" className="field">
+        <select id={id('service')} name="service" required defaultValue={preselected} className="field">
           <option value="" disabled>
             Select Service
           </option>

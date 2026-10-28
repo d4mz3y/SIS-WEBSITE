@@ -1,4 +1,5 @@
 import PageBand from '../components/PageBand.jsx';
+import CtaBox from '../components/CtaBox.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
 
 const pillars = [
@@ -7,11 +8,11 @@ const pillars = [
     text: 'A trained SIS field agent physically visits the declared residence or workplace to confirm existence, occupancy, and authenticity of claims.',
   },
   {
-    title: 'GPS Geo-Fencing',
+    title: 'GPS Geotagging',
     text: 'Real-time latitude and longitude coordinates are captured to provide verifiable proof of the exact verification location.',
   },
   {
-    title: 'HUM-INT (Human Intelligence)',
+    title: 'HUMINT (Human Intelligence)',
     text: 'Discreet neighborhood intelligence is gathered to validate tenure, behavior patterns, and social credibility.',
   },
   {
@@ -21,7 +22,7 @@ const pillars = [
 ];
 
 export default function Method() {
-  usePageMeta('The PAI Method', 'The PAI Method is SIS’s structured field workflow for eliminating identity fraud, residency falsification and guarantor risk.');
+  usePageMeta('/method');
 
   return (
     <>
@@ -36,7 +37,7 @@ export default function Method() {
             <p className="mt-5 leading-8 text-mist">
               At SIS Verification Services, we do not perform routine background checks. We execute a structured
               investigative workflow known as the PAI Method, designed to eliminate identity fraud, residency
-              falsification, and guarantor’s risk.
+              falsification, and guarantor risk.
             </p>
           </header>
 
@@ -64,6 +65,8 @@ export default function Method() {
               This transforms hiring decisions from assumptions into evidence-based certainty.
             </p>
           </div>
+
+          <CtaBox className="mt-16" />
         </div>
       </section>
     </>

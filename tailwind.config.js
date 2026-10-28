@@ -5,7 +5,8 @@ export default {
     extend: {
       colors: {
         navy: { DEFAULT: '#02031c', card: '#0b1130' },
-        gold: '#FFC300',
+        // gold.ink is for text on white sections; plain gold only has 1.6:1 contrast there.
+        gold: { DEFAULT: '#FFC300', ink: '#9A6B00' },
         mist: '#cfd6e0',
       },
       fontFamily: {

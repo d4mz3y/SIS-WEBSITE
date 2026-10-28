@@ -1,14 +1,14 @@
 import { photoUrl } from '../data/photos';
 
-// Banner under the transparent navbar on inner pages. Uses the brand wordmark artwork, or a real
-// photo (with a navy wash so the nav stays readable) when one exists for `photoName`.
+// Slim banner under the transparent navbar on inner pages, so the page heading starts near the top of the screen.
+// Shows a real photo (with a navy wash so the nav stays readable) when one exists for `photoName`.
 export default function PageBand({ photoName }) {
   const photo = photoName && photoUrl(photoName);
 
   return (
     <div
       aria-hidden="true"
-      className="relative h-[34vh] min-h-[220px] w-full bg-wordmark print:hidden sm:h-[52vh] sm:min-h-[360px]"
+      className={`relative w-full bg-banner print:hidden ${photo ? 'h-44 sm:h-56' : 'h-36 sm:h-44'}`}
     >
       {photo && (
         <>

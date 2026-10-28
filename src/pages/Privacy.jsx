@@ -148,10 +148,7 @@ const sections = [
 ];
 
 export default function Privacy() {
-  usePageMeta(
-    'Privacy Policy',
-    'How SIS Verification Services collects, uses, shares and protects personal data, and the rights people have under Nigerian data protection law.',
-  );
+  usePageMeta('/privacy');
 
   return (
     <LegalDocument

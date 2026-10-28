@@ -27,7 +27,13 @@ Needs Node 20.19 or newer.
 ## Things to know
 
 - **Photos are real photographs only.** To change one, replace the file in `src/assets/photos/` keeping the same name.
-- **Social icons** only appear in the footer once their URL is filled in `src/data/site.js`.
+- **Details only the business can supply** (registered company name, CAC/RC number, office address, WhatsApp number,
+  social profile URLs) are slots at the top of `src/data/site.js`. Each one appears in the footer, and the company
+  details also in the Terms, only once it is filled in.
+- **Page titles, descriptions and share previews** come from `src/data/seo.js`. `npm run build` then writes one HTML
+  file per page (so WhatsApp, LinkedIn and Google read the right tags), plus `sitemap.xml` and `robots.txt`.
+  The public address used for those is `SITE_URL` in the same file, or `VITE_SITE_URL` at build time.
+- **Service links:** `/contact?service=Guarantor%20Vetting` opens the form with that service already chosen.
 - **Contact form** posts to FormSubmit (`formsubmit.co`). The first real submission emails an activation link to
   `verify@sisverification.com.ng`; the form will not deliver until that link is clicked.
 - **Old links** such as `/about.html` and `/service.html` redirect to the new pages.
