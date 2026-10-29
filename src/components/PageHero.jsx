@@ -12,14 +12,17 @@ const pings = [
 // hero so it is always above the fold. All motion is behind `motion-safe:`, so reduced-motion users get a still image.
 export default function PageHero({ photo, eyebrow, title, lead }) {
   const src = photoUrl(photo);
+  const small = photoUrl(`${photo}-sm`); // 800 px copy for phones; the original is 1600 px
 
   return (
     <section className="relative isolate flex min-h-[320px] items-end overflow-hidden bg-navy print:hidden sm:min-h-[400px] lg:min-h-[46vh]">
       {src && (
         <img
           src={src}
+          srcSet={small ? `${small} 800w, ${src} 1600w` : undefined}
+          sizes="100vw"
           alt=""
-          fetchPriority="high"
+          fetchpriority="high"
           decoding="async"
           className="absolute inset-0 -z-20 h-full w-full object-cover motion-safe:animate-ken-burns"
         />

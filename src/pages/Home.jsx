@@ -4,9 +4,7 @@ import {
   FiCreditCard,
   FiDatabase,
   FiFileText,
-  FiMail,
   FiMapPin,
-  FiPhone,
   FiShield,
   FiUserCheck,
   FiUsers,
@@ -15,6 +13,7 @@ import Photo from '../components/Photo.jsx';
 import AnimatedShield from '../components/AnimatedShield.jsx';
 import GlobeTracker from '../components/GlobeTracker.jsx';
 import ContactForm from '../components/ContactForm.jsx';
+import ContactMethods from '../components/ContactMethods.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
 import { site } from '../data/site';
 
@@ -29,7 +28,7 @@ const reasons = [
   },
   {
     title: 'Corporate Risk Reduction',
-    text: 'We help organizations reduce hiring fraud, identity manipulation, guarantor falsification, and internal security threats before onboarding.',
+    text: 'We help organisations reduce hiring fraud, identity manipulation, guarantor falsification, and internal security threats before onboarding.',
   },
 ];
 
@@ -51,7 +50,7 @@ const facilities = [
   {
     visual: 'globe',
     title: 'Advanced Surveillance',
-    text: 'Utilizing high-tech monitoring solutions and on-ground intelligence to support our field operations with real-time security updates, so every verification is carried out safely and securely.',
+    text: 'Utilising high-tech monitoring solutions and on-ground intelligence to support our field operations with real-time security updates, so every verification is carried out safely and securely.',
   },
 ];
 
@@ -107,14 +106,14 @@ export default function Home() {
       </section>
 
       {/* Why SIS */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-12 sm:py-20">
         <div className="container-x">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-semibold text-navy sm:text-4xl">
-              Why Leading Organizations <span className="text-gold-ink">Choose SIS</span>
+              Why Leading Organisations <span className="text-gold-ink">Choose SIS</span>
             </h2>
             <p className="mt-5 leading-7 text-navy/80">
-              Organizations trust SIS Verification Services because we deliver more than routine background checks.
+              Organisations trust SIS Verification Services because we deliver more than routine background checks.
               Through our field-first intelligence approach, we provide physically verified, evidence-backed reports
               that help businesses reduce fraud, strengthen hiring decisions, and protect operational integrity with
               confidence.
@@ -135,7 +134,7 @@ export default function Home() {
       </section>
 
       {/* Facilities */}
-      <section className="bg-white pb-16 sm:pb-20">
+      <section className="bg-white pb-12 sm:pb-20">
         <div className="container-x">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-semibold text-gold-ink sm:text-4xl">Our Facilities</h2>
@@ -150,7 +149,7 @@ export default function Home() {
             {facilities.map(({ photo, visual, Icon, title, alt, text, position }) => (
               <article key={title}>
                 <div className="aspect-[16/10] overflow-hidden rounded-xl">
-                  {visual === 'globe' ? <GlobeTracker /> : <Photo name={photo} alt={alt} Icon={Icon} position={position} />}
+                  {visual === 'globe' ? <GlobeTracker /> : <Photo name={photo} alt={alt} Icon={Icon} position={position} sizes="(min-width: 768px) 33vw, 100vw" />}
                 </div>
                 <h3 className="mb-3 mt-5 text-lg font-bold text-navy">{title}</h3>
                 <p className="text-sm leading-7 text-navy/80">{text}</p>
@@ -161,7 +160,7 @@ export default function Home() {
       </section>
 
       {/* How we verify */}
-      <section className="bg-white pb-16 sm:pb-24">
+      <section className="bg-white pb-12 sm:pb-24">
         <div className="container-x max-w-5xl">
           <div className="mx-auto mb-12 max-w-3xl text-center">
             <span className="text-sm font-bold tracking-[0.2em] text-gold-ink">HOW WE VERIFY</span>
@@ -171,23 +170,21 @@ export default function Home() {
               uncertainty and deliver evidence-based verification.
             </p>
           </div>
-          <ol className="space-y-6">
+          <ol className="space-y-4 sm:space-y-6">
             {steps.map(({ photo, Icon, title, alt, text, position }, index) => (
               <li
                 key={title}
-                className="flex flex-col gap-5 rounded-2xl border border-navy/5 bg-white p-5 shadow-soft transition duration-300 hover:-translate-y-1 md:flex-row md:items-center"
+                className="flex items-center gap-3 rounded-2xl border border-navy/5 bg-white p-4 shadow-soft transition duration-300 hover:-translate-y-1 md:gap-5 md:p-5"
               >
-                <div className="flex items-center gap-5 md:flex-1">
-                  <div className="flex h-[70px] w-[70px] shrink-0 items-center justify-center rounded-xl bg-navy text-2xl font-bold text-gold">
-                    {String(index + 1).padStart(2, '0')}
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="mb-1.5 text-lg font-bold text-navy">{title}</h3>
-                    <p className="text-sm leading-6 text-navy/80">{text}</p>
-                  </div>
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-navy text-base font-bold text-gold md:h-[70px] md:w-[70px] md:rounded-xl md:text-2xl">
+                  {String(index + 1).padStart(2, '0')}
                 </div>
-                <div className="h-44 w-full shrink-0 overflow-hidden rounded-xl md:h-[100px] md:w-[140px]">
-                  <Photo name={photo} alt={alt} Icon={Icon} position={position} />
+                <div className="min-w-0 flex-1">
+                  <h3 className="mb-1 text-base font-bold text-navy md:mb-1.5 md:text-lg">{title}</h3>
+                  <p className="text-sm leading-6 text-navy/80">{text}</p>
+                </div>
+                <div className="h-[72px] w-[72px] shrink-0 overflow-hidden rounded-xl sm:h-[84px] sm:w-[84px] md:h-[100px] md:w-[140px]">
+                  <Photo name={photo} alt={alt} Icon={Icon} position={position} sizes="(min-width: 768px) 140px, 84px" />
                 </div>
               </li>
             ))}
@@ -196,7 +193,7 @@ export default function Home() {
       </section>
 
       {/* PAI method */}
-      <section className="bg-band relative overflow-hidden px-5 py-20 text-center text-white sm:py-24">
+      <section className="bg-band relative overflow-hidden px-5 py-14 text-center text-white sm:py-24">
         <AnimatedShield className="pointer-events-none absolute right-[5%] top-1/2 hidden w-[min(22vw,320px)] -translate-y-1/2 xl:block" />
         <div className="relative mx-auto max-w-xl">
           <AnimatedShield className="mx-auto mb-5 w-32 xl:hidden" />
@@ -214,19 +211,19 @@ export default function Home() {
       </section>
 
       {/* Industries */}
-      <section className="bg-white py-16 text-center sm:py-20">
+      <section className="bg-white py-12 text-center sm:py-20">
         <div className="container-x">
-          <h2 className="text-3xl font-bold uppercase text-navy sm:text-4xl">
+          <h2 className="text-3xl font-bold text-navy sm:text-4xl">
             Industries <span className="text-gold-ink">We Serve</span>
           </h2>
-          <p className="mb-12 mt-3 inline-block border-b-[3px] border-gold pb-1 text-lg text-navy">
+          <p className="mb-8 mt-3 inline-block border-b-[3px] sm:mb-12 border-gold pb-1 text-lg text-navy">
             Trusted Across Critical Industries
           </p>
-          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
             {industries.map((name) => (
               <li
                 key={name}
-                className="rounded-lg border-l-[5px] border-gold bg-navy p-6 font-semibold text-white"
+                className="rounded-lg border-l-[5px] border-gold bg-navy p-4 text-sm font-semibold text-white last:col-span-2 sm:p-6 sm:text-base lg:last:col-span-1"
               >
                 {name}
               </li>
@@ -236,7 +233,7 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="bg-navy px-0 py-16 text-white sm:py-24">
+      <section id="contact" className="bg-navy px-0 py-12 text-white sm:py-24">
         <div className="container-x grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <span className="eyebrow">Request Verification</span>
@@ -244,35 +241,12 @@ export default function Home() {
               Evidence-Based Verification <span className="text-gold">You Can Trust</span>
             </h2>
             <p className="mt-5 max-w-xl leading-7 text-mist">
-              SIS Verification Services helps organizations reduce fraud and hiring risk through physical
+              SIS Verification Services helps organisations reduce fraud and hiring risk through physical
               verification, guarantor vetting, and intelligence-led investigations. Tell us what you need verified and
               we will respond with a confidential intelligence brief.
             </p>
 
-            <ul className="mt-8 space-y-4">
-              <li>
-                <a href={`mailto:${site.email}`} className="group flex items-center gap-4">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-gold/30 bg-gold/10 text-gold transition group-hover:bg-gold group-hover:text-navy">
-                    <FiMail className="h-5 w-5" aria-hidden="true" />
-                  </span>
-                  <span className="min-w-0">
-                    <span className="block text-xs uppercase tracking-wider text-white/60">Email</span>
-                    <span className="block break-all font-semibold group-hover:text-gold">{site.email}</span>
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href={site.phoneHref} className="group flex items-center gap-4">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-gold/30 bg-gold/10 text-gold transition group-hover:bg-gold group-hover:text-navy">
-                    <FiPhone className="h-5 w-5" aria-hidden="true" />
-                  </span>
-                  <span>
-                    <span className="block text-xs uppercase tracking-wider text-white/60">Phone</span>
-                    <span className="block font-semibold group-hover:text-gold">{site.phone}</span>
-                  </span>
-                </a>
-              </li>
-            </ul>
+            <ContactMethods className="mt-8" />
 
             <ul className="mt-8 flex flex-wrap gap-3">
               {assurances.map((item) => (

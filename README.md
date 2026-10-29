@@ -42,7 +42,12 @@ Needs Node 20.19 or newer.
   The public address used for those is `SITE_URL` in the same file, or `VITE_SITE_URL` at build time.
 - **Service links:** `/contact?service=Guarantor%20Vetting` opens the form with that service already chosen.
 - **Contact form** posts to FormSubmit (`formsubmit.co`). The first real submission emails an activation link to
-  `verify@sisverification.com.ng`; the form will not deliver until that link is clicked.
+  `verify@sisverification.com.ng`; the form will not deliver until that link is clicked. After activation, put the
+  private alias FormSubmit provides in `formAlias` in `src/data/site.js`. Validation rules (trimming, email and phone
+  formats, length limits) are in `src/lib/validation.js`.
+- **Spelling:** British English throughout (organisation, behaviour, specialised), matching Nigerian usage.
+- **Images:** each photo has a half-size copy named `<name>-sm.webp`; the browser picks the one that fits the screen.
+  Keep both when replacing a photo (900 px and 450 px wide; heroes 1600 px and 800 px).
 - **Old links** such as `/about.html` and `/service.html` redirect to the new pages.
 
 ## Legal pages and consent forms

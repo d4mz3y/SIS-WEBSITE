@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
 import logo from '../assets/brand/logo.webp';
+import logoSm from '../assets/brand/logo-sm.webp';
+import { FaWhatsapp } from 'react-icons/fa6';
 import emblem from '../assets/brand/emblem.webp';
 import { navLinks, site } from '../data/site';
 
@@ -62,6 +64,8 @@ export default function Navbar() {
           >
             <img
               src={logo}
+              srcSet={`${logoSm} 400w, ${logo} 800w`}
+              sizes="(min-width: 1024px) 202px, (min-width: 640px) 180px, 135px"
               alt={site.name}
               width="800"
               height="285"
@@ -108,6 +112,18 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
+
+          {site.whatsapp && (
+            <a
+              href={`https://wa.me/${site.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat with us on WhatsApp"
+              className="hidden h-10 w-10 items-center justify-center rounded-full bg-emerald-500 text-white transition hover:bg-emerald-400 md:inline-flex"
+            >
+              <FaWhatsapp className="h-5 w-5" aria-hidden="true" />
+            </a>
+          )}
 
           <button
             type="button"
@@ -167,6 +183,17 @@ export default function Navbar() {
               <Link to="/contact" className="btn-gold w-full">
                 Request Verification
               </Link>
+              {site.whatsapp && (
+                <a
+                  href={`https://wa.me/${site.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn w-full bg-emerald-500 text-white hover:bg-emerald-400"
+                >
+                  <FaWhatsapp aria-hidden="true" />
+                  Chat on WhatsApp
+                </a>
+              )}
               <a href={`mailto:${site.email}`} className="block break-all text-center text-white/70 hover:text-gold">
                 {site.email}
               </a>

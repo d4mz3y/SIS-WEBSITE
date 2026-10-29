@@ -40,7 +40,7 @@ export default function Services() {
         photo="hero-services"
         eyebrow="Our Services"
         title="Forensic Verification Solutions Built for High-Trust Environments"
-        lead="SIS Verification Services provides forensic human capital verification solutions designed for organizations operating in high-risk, high-trust environments. Each service is built to eliminate uncertainty and deliver verifiable truth."
+        lead="SIS Verification Services provides forensic human capital verification solutions designed for organisations operating in high-risk, high-trust environments. Each service is built to eliminate uncertainty and deliver verifiable truth."
       />
       <section className="overflow-hidden bg-navy px-0 py-16 text-white sm:py-24">
         <div className="container-x max-w-6xl">

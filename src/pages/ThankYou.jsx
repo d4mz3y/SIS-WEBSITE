@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { FiCheckCircle } from 'react-icons/fi';
 import PageHero from '../components/PageHero.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
+import { site } from '../data/site';
 
 export default function ThankYou() {
   usePageMeta('/thank-you');
@@ -23,7 +24,11 @@ export default function ThankYou() {
             <Link to="/consent" className="font-semibold text-gold underline-offset-4 hover:underline">
               consent form
             </Link>
-            . Please email the signed copies to us.
+            . Please email the signed copies to{' '}
+            <a href={`mailto:${site.email}`} className="font-semibold text-gold underline-offset-4 hover:underline">
+              {site.email}
+            </a>
+            .
           </p>
           <Link to="/" className="btn-outline mt-8">
             Back to Home

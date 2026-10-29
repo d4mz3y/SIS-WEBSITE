@@ -17,7 +17,7 @@ export const pages = {
   '/about': {
     title: 'About Us | SIS Verification Services',
     description:
-      'SIS Verification Services delivers field-first intelligence and forensic verification that protects organizations from fraud, liability and operational risk.',
+      'SIS Verification Services delivers field-first intelligence and forensic verification that protects organisations from fraud, liability and operational risk.',
   },
   '/method': {
     title: 'The PAI Method | SIS Verification Services',

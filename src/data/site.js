@@ -1,7 +1,7 @@
 export const site = {
   name: 'SIS Verification Services',
   blurb:
-    'Specialized Intelligence for Modern Enterprise. SIS Verification Services is a field-focused intelligence company dedicated to verifying employees and guarantors with physical evidence-based methods.',
+    'Specialised Intelligence for Modern Enterprise. SIS Verification Services is a field-focused intelligence company dedicated to verifying employees and guarantors with physical evidence-based methods.',
   email: 'verify@sisverification.com.ng',
   phone: '+234 706 503 0051',
   phoneHref: 'tel:+2347065030051',
@@ -10,6 +10,9 @@ export const site = {
   rcNumber: '', // CAC registration number, digits only
   address: '', // office address, shown in the footer
   whatsapp: '', // international format with no + or spaces, for example '2347065030051'
+  // After the first test submission is activated, FormSubmit gives a private alias (a random string). Paste it here and
+  // the contact form will use it instead of the raw email address. Leave empty until then.
+  formAlias: '',
   // Shown at the top of the Terms and Privacy pages. Update it whenever either changes.
   legalUpdated: '28 October 2026',
   // Paste the real profile URL for each network. An icon only shows in the footer once its href is filled in.

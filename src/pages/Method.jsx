@@ -13,7 +13,7 @@ const pillars = [
   },
   {
     title: 'HUMINT (Human Intelligence)',
-    text: 'Discreet neighborhood intelligence is gathered to validate tenure, behavior patterns, and social credibility.',
+    text: 'Discreet neighbourhood intelligence is gathered to validate tenure, behaviour patterns, and social credibility.',
   },
   {
     title: 'Forensic Reporting',

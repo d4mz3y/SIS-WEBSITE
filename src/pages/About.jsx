@@ -13,8 +13,8 @@ export default function About() {
       <PageHero
         photo="hero-about"
         eyebrow="About SIS"
-        title="Specialized Intelligence for Modern Enterprise."
-        lead="SIS Verification Services delivers field-first intelligence and forensic verification solutions designed to protect organizations from fraud, liability, and operational risk."
+        title="Specialised Intelligence for Modern Enterprise."
+        lead="SIS Verification Services delivers field-first intelligence and forensic verification solutions designed to protect organisations from fraud, liability, and operational risk."
       />
       <section className="bg-navy px-0 py-16 text-white sm:py-24">
         <div className="container-x max-w-6xl">

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp, FaXTwitter } from 'react-icons/fa6';
 import logo from '../assets/brand/logo.webp';
+import logoSm from '../assets/brand/logo-sm.webp';
 import { footerLinks, legalLinks, site } from '../data/site';
 
 const socialIcons = {
@@ -24,7 +25,7 @@ export default function Footer() {
       >
         <div className="sm:col-span-2 lg:col-span-1">
           <Link to="/" aria-label={`${site.name} home`} className="inline-block rounded-md">
-            <img src={logo} alt={site.name} width="800" height="285" loading="lazy" className="mx-auto h-16 w-auto sm:mx-0" />
+            <img src={logo} srcSet={`${logoSm} 400w, ${logo} 800w`} sizes="180px" alt={site.name} width="800" height="285" loading="lazy" className="mx-auto h-16 w-auto sm:mx-0" />
           </Link>
           <p className="mx-auto mt-5 max-w-md text-sm leading-7 text-white/70 sm:mx-0">{site.blurb}</p>
           {site.legalName && (
@@ -37,10 +38,10 @@ export default function Footer() {
 
         <nav aria-label="Footer">
           <h2 className="footer-heading">Quick Links</h2>
-          <ul className="space-y-3">
+          <ul>
             {footerLinks.map(({ to, label }) => (
               <li key={to}>
-                <Link to={to} className="text-sm text-white/85 transition-colors hover:text-gold">
+                <Link to={to} className="block py-2.5 text-sm text-white/85 transition-colors hover:text-gold">
                   {label}
                 </Link>
               </li>
@@ -50,11 +51,11 @@ export default function Footer() {
 
         <div>
           <h2 className="footer-heading">Contacts</h2>
-          <ul className="space-y-4 text-sm">
+          <ul className="text-sm">
             <li>
               <a
                 href={`mailto:${site.email}`}
-                className="inline-flex items-start justify-center gap-3 break-all text-white/85 transition-colors hover:text-gold sm:justify-start"
+                className="inline-flex items-start justify-center gap-3 break-all py-2.5 text-white/85 transition-colors hover:text-gold sm:justify-start"
               >
                 <FiMail className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
                 {site.email}
@@ -63,7 +64,7 @@ export default function Footer() {
             <li>
               <a
                 href={site.phoneHref}
-                className="inline-flex items-center justify-center gap-3 text-white/85 transition-colors hover:text-gold sm:justify-start"
+                className="inline-flex items-center justify-center gap-3 py-2.5 text-white/85 transition-colors hover:text-gold sm:justify-start"
               >
                 <FiPhone className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
                 {site.phone}
@@ -75,7 +76,7 @@ export default function Footer() {
                   href={`https://wa.me/${site.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 text-white/85 transition-colors hover:text-gold sm:justify-start"
+                  className="inline-flex items-center justify-center gap-3 py-2.5 text-white/85 transition-colors hover:text-gold sm:justify-start"
                 >
                   <FaWhatsapp className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
                   Chat on WhatsApp
@@ -132,7 +133,7 @@ export default function Footer() {
             {legalLinks.map(({ to, label }, index) => (
               <Fragment key={to}>
                 <span className="whitespace-nowrap">
-                  <Link to={to} className="transition-colors hover:text-gold">
+                  <Link to={to} className="inline-block py-2 transition-colors hover:text-gold">
                     {label}
                   </Link>
                   {index < legalLinks.length - 1 && (
